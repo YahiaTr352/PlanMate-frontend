@@ -1,0 +1,39 @@
+.tasksByStatus-div{
+    margin: 30px 0 30px 6%;
+}
+
+.tasksByStatus-header{
+    margin: 30px 0 0 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tasksByStatus-header-icon{
+    font-size: 23px;
+    color: rgb(61, 175, 137);
+}
+
+.tasksByStatus-title{
+    font-style: italic;
+    font-size: 23px;
+    color: rgb(37, 37, 37);
+}
+
+@media (max-width : 400px){
+    .tasksByStatus-div{
+        margin: 30px 0 30px 40px;
+    }
+
+    .tasksByStatus-header{
+        margin: 30px 0 0 30px;
+    }
+
+    .tasksByStatus-header-icon{
+        font-size: 20px;
+    }
+
+    .tasksByStatus-title{
+        font-size: 20px;
+    }
+}

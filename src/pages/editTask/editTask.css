@@ -1,0 +1,71 @@
+.editTask-div {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.editTask-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.editTask-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.editTask-input, .editTask-select {
+    margin-bottom: 15px;
+    padding: 12px;
+    width: 93%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.editTask-select {
+    width: 100%;
+}
+
+.editTask-input:focus, .editTask-select:focus {
+    border-color: #333;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.editTask-div-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.editTask-button {
+    width: 100%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.editTask-button:hover {
+    background-color: #333;
+    transform: translateY(-3px);
+}
+
+.editTask-button:active {
+    background-color: #555;
+    transform: translateY(0);
+}

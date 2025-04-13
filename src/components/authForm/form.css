@@ -1,0 +1,135 @@
+.auth-card{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form{
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.auth-div-form{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 100px 15px 100px;
+}
+
+.auth-title{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.auth-label{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.auth-input{
+    position: relative;
+    margin-bottom: 5px;
+    padding: 10px 80px 10px 5px; 
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.auth-div-password{
+    position: relative;
+}
+
+.auth-showButton{
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.auth-div-button{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-button{
+    padding:  10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+
+.auth-form:hover{
+    transform: scale(1.02);
+}
+
+.auth-input:focus {
+    border-color: #74ebd5;
+}
+
+.loading-spinner {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+}
+
+.auth-input.error {
+    border: 1px solid #ff4d4d;
+    background-color: #ffe6e6;
+}
+
+.auth-error{
+    font-size: 14px;
+    color: red;
+    margin-bottom: 5px;
+}
+
+.auth-paragraph-bottom{
+    margin-bottom: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.auth-input:focus{
+    border-color: #333;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@media (max-width : 500px){
+    .auth-div-form{
+        padding: 30px 40px 30px 40px;
+    }
+}

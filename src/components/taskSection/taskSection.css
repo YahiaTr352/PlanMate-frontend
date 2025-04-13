@@ -1,0 +1,82 @@
+.taskSection-main-div{
+    margin: 50px 0;
+}
+
+.taskSection-div{
+    display: none;
+}
+
+
+.taskSection-div.open{
+    display: block;
+}
+
+.taskSection-action{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.taskSection-action p , .taskSection-action-icon{
+    color: rgb(85 85 85);
+}
+
+.taskSection-action-icon{
+    font-size: 13px;
+}
+
+.taskSection-card{
+    width: 86.8%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+}
+
+.taskSection-card-title{
+    font-size: 20px;
+    min-width: 20%; 
+}
+
+.taskSection-card-divClock{
+    min-width: 20%;
+}
+
+.taskSection-card-clock{
+    color: gray;
+    margin-right: 8px;
+}
+
+.taskSection-card-icon {
+    color: gray;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.taskSection-card-link:hover{
+    color: red;
+}
+
+.taskSection-card-icon:hover{
+    color: rgb(45, 45, 45);
+}
+
+
+.taskSection-card-trashIcon:hover{
+    background-color: red;
+}
+
+.taskSection-noTask{
+    padding: 10px;
+}
+
+
+@media (max-width : 400px){
+    .taskSection-card{
+        margin-left: -4%;
+    }
+}

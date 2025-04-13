@@ -1,0 +1,39 @@
+.tasksByPriority-div{
+    margin: 30px 0 30px 6%;
+}
+
+.tasksByPriority-header{
+    margin: 30px 0 0 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tasksByPriority-header-icon{
+    font-size: 23px;
+    color: rgb(255, 90, 69);
+}
+
+.tasksByPriority-title{
+    font-style: italic;
+    font-size: 23px;
+    color: rgb(37, 37, 37);
+}
+
+@media (max-width : 400px){
+    .tasksByPriority-div{
+        margin: 30px 0 30px 40px;
+    }
+
+    .tasksByPriority-header{
+        margin: 30px 0 0 30px;
+    }
+
+    .tasksByPriority-header-icon{
+        font-size: 20px;
+    }
+
+    .tasksByPriority-title{
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,22 @@
+.header-div{
+    position: sticky;
+    top: 0;
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-logo-div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-logo-div h2{
+    color: #fff;
+}
+
+.header-logo-div img{
+    width: 50px;
+}
