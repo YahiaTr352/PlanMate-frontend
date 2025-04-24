@@ -16,7 +16,6 @@ export const authUser = createAsyncThunk(
             
             return { user: res.data.newUser, token: token };
         } catch (error) {
-
             if (!error.response) {
                 return rejectWithValue({ networkError: "Network error. Please check your connection." });
             }
@@ -49,6 +48,9 @@ const authSlice = createSlice({
         builder
             .addCase(authUser.pending, (state) => {
                 state.loading = true;
+                state.backendAuthErrors = {};
+                state.serverError = {};
+                state.networkError = null;
             })
             .addCase(authUser.fulfilled, (state, action) => {
                 state.loading = false;

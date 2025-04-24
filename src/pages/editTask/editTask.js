@@ -6,19 +6,12 @@ import { toast } from "react-toastify";
 import "./editTask.css";
 
 export const EditTaskScreen = () => {
-    const {networkError , serverError} = useSelector((state) => state.tasks);
     const { taskId } = useParams(); 
     const dispatch = useDispatch();
-    const { tasks } = useSelector((state) => state.tasks);
+    const {loading , tasks } = useSelector((state) => state.tasks);
     const nav = useNavigate();
 
     const [task, setTask] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        if (serverError) toast.error(serverError);
-        if (networkError) toast.error(networkError);
-      }, [serverError, networkError]);
 
     useEffect(() => {
         const fetchTask = async () => {
@@ -33,7 +26,6 @@ export const EditTaskScreen = () => {
         const foundTask = tasks.find((t) => t._id === taskId);
         if (foundTask) {
             setTask(foundTask);
-            setLoading(false);
         }
     }, [tasks, taskId]);
 
@@ -100,7 +92,9 @@ export const EditTaskScreen = () => {
                     onChange={handleChange}
                 />
                 <div className="editTask-div-button">
-                    <button type="submit" className="editTask-button">Edit Task</button>
+                    <button className="editTask-button" type="submit" disabled={loading} >
+                        {loading ? <div className="loading-spinner"></div> : "Edit Task"}
+                    </button>
                 </div>
             </form>
         </div>

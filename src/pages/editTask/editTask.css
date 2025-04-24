@@ -48,6 +48,12 @@
     margin-top: 20px;
 }
 
+.editTask-div-button{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 .editTask-button {
     width: 100%;
     border: none;
@@ -58,6 +64,15 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
 }
 
 .editTask-button:hover {

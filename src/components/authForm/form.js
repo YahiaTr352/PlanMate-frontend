@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 export const FormAuth = ({ title, endPoint, fields, buttonName }) => {
     const nav = useNavigate();
     const dispatch = useDispatch();
-    const { loading, backendAuthErrors ,serverError , networkError , unknownError , user } = useSelector((state) => state.auth);
+    const { loading, backendAuthErrors } = useSelector((state) => state.auth);
     const [showPassword, setShowPassword] = useState(false);
     const [showPasswordC, setShowPasswordC] = useState(false);
     const [form, setForm] = useState({
@@ -57,11 +57,6 @@ export const FormAuth = ({ title, endPoint, fields, buttonName }) => {
         e.preventDefault();
         setShowPasswordC(!showPasswordC);
     };
-
-    useEffect(() => {
-        if (serverError) toast.error(serverError);
-        if (networkError) toast.error(networkError);
-      }, [serverError, networkError]);
 
     return (
         <div className="auth-card">
@@ -114,7 +109,7 @@ export const FormAuth = ({ title, endPoint, fields, buttonName }) => {
                                     type="button"
                                     className="auth-showButton" 
                                     onClick={handleChangePassword}>
-                                    <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
+                                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                                 </button>
                             </div>
                             {errors?.password && <p className="auth-error">{errors?.password}</p>}
@@ -137,7 +132,7 @@ export const FormAuth = ({ title, endPoint, fields, buttonName }) => {
                                     type="button"
                                     className="auth-showButton" 
                                     onClick={handleChangePasswordC}>
-                                    <FontAwesomeIcon icon={showPasswordC ? faEye : faEyeSlash} />
+                                    <FontAwesomeIcon icon={showPasswordC ? faEyeSlash : faEye} />
                                 </button>
                             </div>
                             {errors?.passwordC && <p className="auth-error">{errors?.passwordC}</p>}

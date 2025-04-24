@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTask } from "../../redux/taskSlice";
 import "./taskSection.css";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export const TaskSection = ({ title, filterBy, filterValue }) => {
     const dispatch = useDispatch();
@@ -14,10 +15,20 @@ export const TaskSection = ({ title, filterBy, filterValue }) => {
 
     const filteredTasks = tasks.filter(task => task[filterBy] === filterValue) || [];
 
+            const handleDeleteTask = async(taskId) => {
+               
+                    try {
+                      await dispatch(deleteTask(taskId)).unwrap();
+                      toast.success("Task deleted successfully!");
+                    } catch (error) {
+                      toast.error("Failed to delete task.");
+                    }
+                  }
+                
+
     return (
             <>
             <div className="taskSection-action" onClick={() => setIsOpen(prev => !prev)}>
-            {loading && <p>Loading...</p>}
             <p>{title}</p>
             {isOpen ? <FaArrowDown className="taskSection-action-icon"/> : <FaArrowUp className="taskSection-action-icon"/>}
             </div>
@@ -37,13 +48,15 @@ export const TaskSection = ({ title, filterBy, filterValue }) => {
                                 <FontAwesomeIcon
                                     className="taskSection-card-icon"
                                     icon={faTrash}
-                                    onClick={() => dispatch(deleteTask(task._id))} />
+                                    onClick={() => handleDeleteTask(task._id)} />
                             </div>
                         </div>
                     ))
+                    
                 ) : (
                     <p className="taskSection-noTask">No tasks found.</p>
                 )}
+                {loading && <p>Loading...</p>}
             </div>
             </>
     );

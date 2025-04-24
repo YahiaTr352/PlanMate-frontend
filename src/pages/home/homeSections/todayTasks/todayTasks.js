@@ -9,20 +9,26 @@ import "./todayTasks.css";
 
 export const TodayTasks = () => {
     const dispatch = useDispatch();
-    const { todayTasks, loading, serverError , networkError , unknownError } = useSelector((state) => state.tasks);
+    const { todayTasks } = useSelector((state) => state.tasks);
 
-        useEffect(() => {
-            if (serverError) toast.error(serverError.message);
-            if (networkError) toast.error(networkError);
-          }, [serverError, networkError]);
-
+        const handleDeleteTask = async(taskId) => {
+           
+                try {
+                  await dispatch(deleteTask(taskId)).unwrap();
+                  toast.success("Task deleted successfully!");
+                } catch (error) {
+                  console.log(error);
+                }
+              }
+            
+        
+    
         useEffect(() => {
             dispatch(getTodayTasksByUser());
         }, [dispatch]);
 
     return (
         <div>
-            {loading && <p>Loading...</p>}
             <div className="todayTasks-div">
                 {todayTasks && todayTasks.length > 0 ? (
                     todayTasks.map((task) => (
@@ -36,7 +42,7 @@ export const TodayTasks = () => {
                             <Link className="todayTasks-card-link" to={`/home/edit-task/${task._id}`}>
                                 <FontAwesomeIcon className="todayTasks-card-icon" icon={faPen}/>
                             </Link>
-                            <FontAwesomeIcon className="todayTasks-card-icon" icon={faTrash} onClick={() => dispatch(deleteTask(task._id))}/>
+                            <FontAwesomeIcon className="todayTasks-card-icon" icon={faTrash} onClick={() => handleDeleteTask(task._id)}/>
                             </div>
                         </div>
                     ))

@@ -6,6 +6,10 @@
     margin: 30px 0 50px 0;
 }
 
+.todayTasks-loading{
+    text-align: center;
+}
+
 .todayTasks-card{
     width: 80%;
     margin-bottom: 5px;

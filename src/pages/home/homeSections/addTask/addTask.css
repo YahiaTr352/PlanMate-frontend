@@ -97,4 +97,8 @@
     .addTask-header h2{
         font-size: 25px;
     }
+
+    .addTask-input{
+        padding: 10px;
+    }
 }

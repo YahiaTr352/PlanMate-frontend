@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { validateTaskForm } from "../../../../utils/vaildation";
 import { addTask, getTodayTasksByUser } from "../../../../redux/taskSlice";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./addTask.css";
-import { toast } from "react-toastify";
 
 
 export const AddTask = () => {
-    const {networkError , serverError} = useSelector((state) => state.tasks);
     const dispatch = useDispatch();
     const [task, setTask] = useState({
         title: "",
@@ -48,12 +46,8 @@ export const AddTask = () => {
             });
             setIsModalOpen(false);
         }
+        
     };  
-      
-        useEffect(() => {
-            if (serverError) toast.error(serverError);
-            if (networkError) toast.error(networkError);
-          }, [serverError, networkError]);
 
     return (
         <>

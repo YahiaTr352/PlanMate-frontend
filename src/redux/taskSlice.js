@@ -91,6 +91,8 @@ const taskSlice = createSlice({
         builder
             .addCase(getTasks.pending, (state) => {
                 state.loading = true;
+                state.backendTaskError = null;
+                state.serverError = {}
             })
             .addCase(getTasks.fulfilled, (state, action) => {
                 state.loading = false;
@@ -100,6 +102,9 @@ const taskSlice = createSlice({
 
             .addCase(getTodayTasksByUser.pending, (state) => {
                 state.loading = true;
+                state.backendTaskError = null;
+                state.serverError = {};
+                state.todayTasks = []
             })
             .addCase(getTodayTasksByUser.fulfilled, (state, action) => {
                 state.loading = false;
@@ -109,6 +114,8 @@ const taskSlice = createSlice({
 
             .addCase(addTask.pending, (state) => {
                 state.loading = true;
+                state.backendTaskError = null;
+                state.serverError = {};
             })
             .addCase(addTask.fulfilled, (state, action) => {
                 state.loading = false;
@@ -120,6 +127,8 @@ const taskSlice = createSlice({
 
             .addCase(deleteTask.pending, (state) => {
                 state.loading = true;
+                state.backendTaskError = null;
+                state.serverError = {};
             })
             .addCase(deleteTask.fulfilled, (state, action) => {
                 state.loading = false;
@@ -130,6 +139,8 @@ const taskSlice = createSlice({
 
             .addCase(updateTask.pending, (state) => {
                 state.loading = true;
+                state.backendTaskError = null;
+                state.serverError = {};
             })
             .addCase(updateTask.fulfilled, (state, action) => {
                 state.loading = false;

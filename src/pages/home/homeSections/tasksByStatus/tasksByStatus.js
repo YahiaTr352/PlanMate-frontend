@@ -1,23 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { TaskSection } from "../../../../components/taskSection/taskSection";
 import "./tasksByStatus.css";
-import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { getTasks } from "../../../../redux/taskSlice";
 import { FaInfoCircle } from 'react-icons/fa';
 
 export const TasksByStatus = () => {
     const dispatch = useDispatch();
-    const { serverError , networkError } = useSelector((State) => State.tasks);
 
     useEffect(() => {
         dispatch(getTasks());
     }, [dispatch]);
-
-    useEffect(() => {
-        if (serverError) toast.error(serverError.message);
-        if (networkError) toast.error(networkError);
-      }, [serverError, networkError]);
 
     return (
         <>
